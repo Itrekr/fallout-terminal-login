@@ -6,16 +6,13 @@ import fallout_hack as hack
 import fallout_selection as select
 import sys
 
-hard = False
-if len(sys.argv) == 2 and sys.argv[1].lower() == 'hard':
-    hard = True
+hard = len(sys.argv) == 2 and sys.argv[1].lower() == 'hard'
 
 if boot.beginBoot(hard):
     pwd = hack.beginLogin()
     if pwd != None:
         login.beginLogin(hard, 'ADMIN', pwd)
-        print select.beginSelection()
+        print(select.beginSelection())
     else:
         locked.beginLocked()
-        print 'Login failed'
-
+        print('Login failed')

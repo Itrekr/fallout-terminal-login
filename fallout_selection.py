@@ -1,7 +1,5 @@
 import curses
-from fallout_functions import slowWrite
-from fallout_functions import centeredWrite
-from fallout_functions import NEWLINE
+from fallout_functions import slowWrite, centeredWrite, NEWLINE
 
 ####################### text strings ########################
 
@@ -37,7 +35,7 @@ def makeSelection(scr):
     selection_count = len(SELECTIONS)
     selection_start_y = scr.getyx()[0]
     width = scr.getmaxyx()[1]
-    
+
     while inchar != NEWLINE:
         # move to start of selections and hightlight current selection
         scr.move(selection_start_y, 0)
@@ -46,7 +44,7 @@ def makeSelection(scr):
             whole_line = '> ' + SELECTIONS[line]
             space = width - len(whole_line) % width
             whole_line += ' ' * space
-            
+
             if line == selection:
                 scr.addstr(whole_line, curses.A_REVERSE)
             else:
@@ -63,7 +61,7 @@ def makeSelection(scr):
             selection += 1
 
     return selection
-        
+
 
 def runSelection(scr):
     """
@@ -83,7 +81,7 @@ def runSelection(scr):
     for header in OTHER_HEADERS:
         slowWrite(scr, header + '\n')
 
-    for i in xrange(width):
+    for i in range(width):
         scr.addch(curses.ACS_BSBS)
     scr.refresh()
 
