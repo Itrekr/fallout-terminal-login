@@ -12,11 +12,10 @@ Usage
 python fallout.py
 ```
 
-or for hard mode where the user must manually enter the correct input in the
-boot and login scripts
+The following line can be added to your .bashrc to make the script run every time you start a shell:
 
 ```
-python fallout.py hard
+python3 /path/to/fallout.py && cat /tmp/selection_output.txt | /path/to/exit.sh
 ```
 
 Passwords
