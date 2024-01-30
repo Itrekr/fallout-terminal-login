@@ -13,14 +13,14 @@ CENTERED_HEADERS = (
 OTHER_HEADERS = (
     '\tSoftLock Solutions, Inc',
     '"Your Security is Our Security"',
-    '>\\ Welcome, USER',
+    '>\\ Welcome, OSCAR',
     ''
 )
 
 SELECTIONS = (
-    'Disengage Lock',
-    'Deactivate Turrets',
-    'Read Log'
+    'Enable radio',
+    'Log',
+    'Manual command input'
 )
 
 ###################### Functions ############################
@@ -91,5 +91,11 @@ def beginSelection():
     """
     Initialize curses and start the boot process
     """
-    res = curses.wrapper(runSelection)
-    return res
+    # Get the user's selection from makeSelection
+    selection = curses.wrapper(runSelection)
+
+    # Write the selection to a temporary file
+    with open('/tmp/selection_output.txt', 'w') as f:
+        f.write(SELECTIONS[selection])
+
+    return selection

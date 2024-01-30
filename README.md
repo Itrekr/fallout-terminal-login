@@ -1,7 +1,9 @@
 Fallout Terminal
 ================
 
-Simulates a computer terminal from fallout.
+Forked version of (https://github.com/brunobraga/termsaver) configured for my raspberry pi 1. With the added exit.sh script that takes options and executes corresponding commands on the system afterwards. 
+
+WARNING: This script reboots your system when you exceed your attempts or when a KeyboardInterrupt is detected!
 
 Usage
 ================
@@ -21,10 +23,3 @@ Passwords
 ================
 
 To add your own lists of passwords, check out the passwords.txt file
-
-Notes
-================
-
-Check out cool-retro-term
-(https://github.com/Swordfish90/cool-retro-term) to make your terminal
-look like a fallout terminal

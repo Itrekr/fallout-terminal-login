@@ -1,4 +1,5 @@
 import curses
+import os
 
 from fallout_functions import slowWrite
 from fallout_functions import centeredWrite
@@ -32,6 +33,7 @@ def runLocked(scr):
     centeredWrite(scr, LOCKED_2)
     scr.refresh()
     curses.napms(LOCKED_OUT_TIME)
+    os.system("reboot")
 
     
 def beginLocked():
